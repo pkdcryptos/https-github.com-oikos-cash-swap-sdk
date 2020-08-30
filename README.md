@@ -9,6 +9,12 @@ Port of Uniswap SDK for Tron.
 
 In-depth documentation on this SDK is available at [uniswap.org](https://uniswap.org/docs/v2/SDK/getting-started/).
 
+## Install
+
+```bash
+npm install @oikos/swap-sdk
+```
+
 ## Running tests
 
 To run the tests, follow these steps. You must have at least node v10 installed.
