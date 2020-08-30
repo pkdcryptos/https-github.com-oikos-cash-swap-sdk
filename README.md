@@ -11,7 +11,7 @@ In-depth documentation on this SDK is available at [uniswap.org](https://uniswap
 
 ## Running tests
 
-To run the tests, follow these steps. You must have at least node v10 and [yarn](https://yarnpkg.com/) installed.
+To run the tests, follow these steps. You must have at least node v10 installed.
 
 First clone the repository:
 
@@ -28,19 +28,18 @@ cd swap-sdk/
 Install dependencies
 
 ```sh
-yarn install
+npm install
 ```
 
 Run tests
 
 ```sh
-yarn test
+npm test
 ```
 
 You should see output like the following:
 
 ```sh
-yarn run v1.22.4
 $ tsdx test
  PASS  test/constants.test.ts
  PASS  test/pair.test.ts
