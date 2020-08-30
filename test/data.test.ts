@@ -1,4 +1,5 @@
-import { ChainId, WETH, Token, Fetcher } from '../src'
+// import { ChainId, WETH, Token, Fetcher } from '../src'
+import { ChainId, Fetcher } from '../src'
 
 // TODO: replace the provider in these tests
 describe.skip('data', () => {
@@ -12,9 +13,12 @@ describe.skip('data', () => {
     expect(token.decimals).toEqual(9)
   })
 
+  /*
+  TODO: TRON: replace test with OKS?
   it('Pair', async () => {
     const token = new Token(ChainId.RINKEBY, '0xc7AD46e0b8a400Bb3C915120d284AafbA8fc4735', 18) // DAI
     const pair = await Fetcher.fetchPairData(WETH[ChainId.RINKEBY], token)
     expect(pair.liquidityToken.address).toEqual('0x8B22F85d0c844Cf793690F6D9DFE9F11Ddb35449')
   })
+  */
 })
