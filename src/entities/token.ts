@@ -60,11 +60,13 @@ export function currencyEquals(currencyA: Currency, currencyB: Currency): boolea
 export const WETH = {
   // TODO: TRON: deploy WTRX on mainnet
   [ChainId.MAINNET]: new Token(
+    // Deployed by Tron Foundation
+    // https://tronscan.io/#/token20/TNUC9Qb1rRpS5CbWLmNMxXBjyFoydXjWFR/code
     ChainId.MAINNET,
-    '0xffffffffffffffffffffffffffffffffffffffff',
+    '0x891cdb91d149f23b1a45d9c5ca78a88d0cb44c18',
     6,
     'WTRX',
-    'Wrapped Tron'
+    'Wrapped TRX'
   ),
   [ChainId.NILE]: new Token(ChainId.NILE, '0x8f44113A985076431b77f6078f0929f949cB8836', 6, 'WTRX', 'Wrapped Tron')
 }
