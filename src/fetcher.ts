@@ -36,6 +36,7 @@ export abstract class Fetcher {
   public static async fetchTokenData(
     chainId: ChainId,
     address: string,
+    // TODO(tron): use java-tron-provider...
     provider = getDefaultProvider(getNetwork(chainId)),
     symbol?: string,
     name?: string
