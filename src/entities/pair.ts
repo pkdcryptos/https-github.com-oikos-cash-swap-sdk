@@ -1,14 +1,16 @@
 import { Price } from './fractions/price'
 import { TokenAmount } from './fractions/tokenAmount'
 import invariant from 'tiny-invariant'
+// import { Contract } from '@ethersproject/contracts'
+import { Web3Provider } from '@ethersproject/providers'
 import JSBI from 'jsbi'
-import { pack, keccak256 } from '@ethersproject/solidity'
-import { getCreate2Address } from '@ethersproject/address'
+// import { pack, keccak256 } from '@ethersproject/solidity'
+// import { getCreate2Address } from '@ethersproject/address'
 
 import {
   BigintIsh,
-  FACTORY_ADDRESS,
-  INIT_CODE_HASH,
+  // FACTORY_ADDRESS,
+  // INIT_CODE_HASH,
   MINIMUM_LIQUIDITY,
   ZERO,
   ONE,
@@ -21,12 +23,14 @@ import { sqrt, parseBigintIsh } from '../utils'
 import { InsufficientReservesError, InsufficientInputAmountError } from '../errors'
 import { Token } from './token'
 
-let PAIR_ADDRESS_CACHE: { [token0Address: string]: { [token1Address: string]: string } } = {}
+// let PAIR_ADDRESS_CACHE: { [token0Address: string]: { [token1Address: string]: string } } = {}
 
 export class Pair {
   public readonly liquidityToken: Token
   private readonly tokenAmounts: [TokenAmount, TokenAmount]
 
+  // @TRON
+  /*
   public static getAddress(tokenA: Token, tokenB: Token): string {
     const tokens = tokenA.sortsBefore(tokenB) ? [tokenA, tokenB] : [tokenB, tokenA] // does safety checks
 
@@ -47,6 +51,18 @@ export class Pair {
     }
 
     return PAIR_ADDRESS_CACHE[tokens[0].address][tokens[1].address]
+  }
+  */
+
+  public static getAddress(_tokenA: Token, _tokenB: Token): string {
+    // throw new Error('getAddress() is incompatible with tron contract... replace me with await getAddressAsync()')
+    return '0x02a6a10e4c7750a7f8dc159b95936b574c211f0d'
+  }
+
+  public static async getAddressAsync(_tokenA: Token, _tokenB: Token, _provider: Web3Provider): Promise<string> {
+    // TODO! ...
+    // use factory contract's getPair method to retrieve pair address
+    return '0x02a6a10e4c7750a7f8dc159b95936b574c211f0d'
   }
 
   public constructor(tokenAmountA: TokenAmount, tokenAmountB: TokenAmount) {
