@@ -103,11 +103,17 @@ export class Pair {
     return pairAddress
   }
 
-  public constructor(tokenAmountA: TokenAmount, tokenAmountB: TokenAmount, pairAddress: string) {
+  public constructor(tokenAmountA: TokenAmount, tokenAmountB: TokenAmount) {
     const tokenAmounts = tokenAmountA.token.sortsBefore(tokenAmountB.token) // does safety checks
       ? [tokenAmountA, tokenAmountB]
       : [tokenAmountB, tokenAmountA]
-    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, pairAddress, 18, 'UNI-V2', 'Uniswap V2')
+    this.liquidityToken = new Token(
+      tokenAmounts[0].token.chainId,
+      Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token),
+      18,
+      'UNI-V2',
+      'Uniswap V2'
+    )
     this.tokenAmounts = tokenAmounts as [TokenAmount, TokenAmount]
   }
 
