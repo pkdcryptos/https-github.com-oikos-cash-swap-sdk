@@ -1,7 +1,7 @@
 import { Price } from './fractions/price'
 import { TokenAmount } from './fractions/tokenAmount'
 import invariant from 'tiny-invariant'
-// import { Contract } from '@ethersproject/contracts'
+import { Contract } from '@ethersproject/contracts'
 import { Web3Provider } from '@ethersproject/providers'
 import JSBI from 'jsbi'
 // import { pack, keccak256 } from '@ethersproject/solidity'
@@ -17,13 +17,50 @@ import {
   FIVE,
   _997,
   _1000,
-  ChainId
+  ChainId,
+  FACTORY_ADDRESSES
 } from '../constants'
 import { sqrt, parseBigintIsh } from '../utils'
 import { InsufficientReservesError, InsufficientInputAmountError } from '../errors'
 import { Token } from './token'
 
 // let PAIR_ADDRESS_CACHE: { [token0Address: string]: { [token1Address: string]: string } } = {}
+
+function getFactoryContract(chainId: ChainId, provider: Web3Provider): Contract {
+  // memoize?
+  const address = FACTORY_ADDRESSES[chainId]
+  // todo: put abi in constants?
+  const abi = [
+    {
+      constant: true,
+      inputs: [
+        {
+          internalType: 'address',
+          name: 'tokenA',
+          type: 'address'
+        },
+        {
+          internalType: 'address',
+          name: 'tokenB',
+          type: 'address'
+        }
+      ],
+      name: 'getPair',
+      outputs: [
+        {
+          internalType: 'address',
+          name: 'pair',
+          type: 'address'
+        }
+      ],
+      payable: false,
+      stateMutability: 'view',
+      type: 'function'
+    }
+  ]
+  const contract = new Contract(address, abi, provider)
+  return contract
+}
 
 export class Pair {
   public readonly liquidityToken: Token
@@ -55,14 +92,15 @@ export class Pair {
   */
 
   public static getAddress(_tokenA: Token, _tokenB: Token): string {
-    // throw new Error('getAddress() is incompatible with tron contract... replace me with await getAddressAsync()')
-    return '0x02a6a10e4c7750a7f8dc159b95936b574c211f0d'
+    throw new Error('getAddress() is incompatible with tron contract... replace me with await getAddressAsync()')
   }
 
-  public static async getAddressAsync(_tokenA: Token, _tokenB: Token, _provider: Web3Provider): Promise<string> {
-    // TODO! ...
-    // use factory contract's getPair method to retrieve pair address
-    return '0x02a6a10e4c7750a7f8dc159b95936b574c211f0d'
+  // TODO(tron): implement caching logic
+  public static async getAddressAsync(tokenA: Token, tokenB: Token, provider: Web3Provider): Promise<string> {
+    // TODO: cache pair addresses...
+    const contract = getFactoryContract(tokenA.chainId, provider)
+    const pairAddress = await contract.getPair(tokenA.address, tokenB.address)
+    return pairAddress
   }
 
   public constructor(tokenAmountA: TokenAmount, tokenAmountB: TokenAmount) {

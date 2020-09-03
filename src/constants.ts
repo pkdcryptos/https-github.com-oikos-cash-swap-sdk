@@ -47,3 +47,9 @@ export const SOLIDITY_TYPE_MAXIMA = {
   [SolidityType.uint8]: JSBI.BigInt('0xff'),
   [SolidityType.uint256]: JSBI.BigInt('0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff')
 }
+
+export const FACTORY_ADDRESSES = {
+  [ChainId.NILE]: '0x41da32ec09fb54ab5f5742f1eb730003caac0bbf',
+  [ChainId.MAINNET]: '0xtodo',
+  [ChainId.SHASTA]: '0xtodo'
+}
