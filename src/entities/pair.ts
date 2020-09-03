@@ -2,7 +2,7 @@ import { Price } from './fractions/price'
 import { TokenAmount } from './fractions/tokenAmount'
 import invariant from 'tiny-invariant'
 import { Contract } from '@ethersproject/contracts'
-import { Web3Provider } from '@ethersproject/providers'
+import { BaseProvider } from '@ethersproject/providers'
 import JSBI from 'jsbi'
 // import { pack, keccak256 } from '@ethersproject/solidity'
 // import { getCreate2Address } from '@ethersproject/address'
@@ -26,7 +26,7 @@ import { Token } from './token'
 
 // let PAIR_ADDRESS_CACHE: { [token0Address: string]: { [token1Address: string]: string } } = {}
 
-function getFactoryContract(chainId: ChainId, provider: Web3Provider): Contract {
+function getFactoryContract(chainId: ChainId, provider: BaseProvider): Contract {
   // memoize?
   const address = FACTORY_ADDRESSES[chainId]
   // todo: put abi in constants?
@@ -96,7 +96,7 @@ export class Pair {
   }
 
   // TODO(tron): implement caching logic
-  public static async getAddressAsync(tokenA: Token, tokenB: Token, provider: Web3Provider): Promise<string> {
+  public static async getAddressAsync(tokenA: Token, tokenB: Token, provider: BaseProvider): Promise<string> {
     // TODO: cache pair addresses...
     const contract = getFactoryContract(tokenA.chainId, provider)
     const pairAddress = await contract.getPair(tokenA.address, tokenB.address)

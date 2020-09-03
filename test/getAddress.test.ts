@@ -19,6 +19,6 @@ describe('getAddress', () => {
       const tokenB = DTKN
       const addr = await Pair.getAddressAsync(tokenA, tokenB, provider)
       expect(addr).toEqual('0x02a6a10E4C7750a7F8dC159b95936B574c211f0D')
-    })
+    }, 10000)
   })
 })
