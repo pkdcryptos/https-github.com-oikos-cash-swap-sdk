@@ -48,8 +48,31 @@ export const SOLIDITY_TYPE_MAXIMA = {
   [SolidityType.uint256]: JSBI.BigInt('0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff')
 }
 
+// @TRON only
 export const FACTORY_ADDRESSES = {
   [ChainId.NILE]: '0x41da32ec09fb54ab5f5742f1eb730003caac0bbf',
   [ChainId.MAINNET]: '0xtodo',
   [ChainId.SHASTA]: '0xtodo'
+}
+
+// TODO: build that data structure from a simple array of (tokenA, tokenB, pairAddress) to avoid human error when adding pairs...
+
+interface PairAddresses {
+  [token0Address: string]: { [token1Address: string]: string }
+}
+
+export const PAIR_ADDRESSES: { [chainId: string]: PairAddresses } = {
+  // addresses must be lowercase
+  // to avoid duplicates (e.g. (a, b) and (b, a)), pairs are sorted by lowercase address
+  // e.g. (smallAddress, largerAddress)
+  // e.g. "0x42C142500ff7068f326c01A8F1B3cd8ea7D9377f".toLowerCase() < "0x8f44113A985076431b77f6078f0929f949cB8836".toLowerCase()
+  [ChainId.NILE]: {
+    // DemoToken
+    '0x42c142500ff7068f326c01a8f1b3cd8ea7d9377f': {
+      // WTRX                                        //  Pair address
+      '0x8f44113a985076431b77f6078f0929f949cb8836': '0x02a6a10E4C7750a7F8dC159b95936B574c211f0D'
+    }
+  },
+  [ChainId.MAINNET]: {},
+  [ChainId.SHASTA]: {}
 }

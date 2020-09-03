@@ -11,8 +11,36 @@ function getNileProvider() {
 
 describe('getAddress', () => {
   const DTKN = new Token(ChainId.NILE, '0x42C142500ff7068f326c01A8F1B3cd8ea7D9377f', 6, 'DTKN', 'Demo Token')
+  const UnknownToken = new Token(
+    ChainId.NILE,
+    '0xDeADBEeF0FF7068f326C01a8F1B3cd8Ea7D9377f',
+    12,
+    'UTKN',
+    'Unknown Token'
+  )
 
-  describe('getAddressAsync', () => {
+  describe('getAddress', () => {
+    it('returns the correct address', async () => {
+      const tokenA = WETH[ChainId.NILE]
+      const tokenB = DTKN
+      const addr = Pair.getAddress(tokenA, tokenB)
+      expect(addr).toEqual('0x02a6a10E4C7750a7F8dC159b95936B574c211f0D')
+    }, 10000)
+    it('returns the correct address (reversed order)', async () => {
+      const tokenA = WETH[ChainId.NILE]
+      const tokenB = DTKN
+      const addr = Pair.getAddress(tokenB, tokenA)
+      expect(addr).toEqual('0x02a6a10E4C7750a7F8dC159b95936B574c211f0D')
+    }, 10000)
+  })
+  it('throw if pair does not exist', async () => {
+    const tokenA = WETH[ChainId.NILE]
+    const tokenB = UnknownToken
+    expect(() => {
+      Pair.getAddress(tokenA, tokenB)
+    }).toThrow(/Open an issue at/)
+  }, 10000)
+  xdescribe('getAddressAsync', () => {
     it('returns the correct address', async () => {
       const provider = getNileProvider()
       const tokenA = WETH[ChainId.NILE]

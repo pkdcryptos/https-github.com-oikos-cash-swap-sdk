@@ -18,7 +18,8 @@ import {
   _997,
   _1000,
   ChainId,
-  FACTORY_ADDRESSES
+  FACTORY_ADDRESSES,
+  PAIR_ADDRESSES
 } from '../constants'
 import { sqrt, parseBigintIsh } from '../utils'
 import { InsufficientReservesError, InsufficientInputAmountError } from '../errors'
@@ -91,8 +92,31 @@ export class Pair {
   }
   */
 
-  public static getAddress(_tokenA: Token, _tokenB: Token): string {
-    throw new Error('getAddress() is incompatible with tron contract... replace me with await getAddressAsync()')
+  // @TRON
+  // create2 opcode not available :(
+  // For now we just hardcode all pair addresses... :/
+  public static getAddress(tokenA: Token, tokenB: Token): string {
+    // An alternative solution would be to make `getAddress` async (see getAddressAsync for an attempt) but it would require a relatively
+    // large refactor of both swap-interface and swap-sdk...
+    console.warn('getAddress() is mocked with hardcoded swapv2 pair addresses until TVM implements create2 op code...')
+    const tokens = tokenA.sortsBefore(tokenB) ? [tokenA, tokenB] : [tokenB, tokenA] // does safety checks
+    const pairAddresses = PAIR_ADDRESSES[tokens[0].chainId]
+    const pairAddress: string | undefined =
+      pairAddresses?.[tokens[0].address.toLowerCase()]?.[tokens[1].address.toLowerCase()]
+    if (pairAddress === undefined) {
+      throw new Error(
+        [
+          `Unknown pair contract address for pair ${tokens[0].symbol}/${tokens[1].symbol} `,
+          `(${tokens[0].address}, ${tokens[1].address}). `,
+          'Open an issue at https://github.com/oikos-cash/swap-sdk/issues ',
+          'with this error message to get the pair added. ',
+          'You can also add the pair to PAIR_ADDRESSES in ',
+          'https://github.com/oikos-cash/swap-sdk/blob/master/src/constants.ts ',
+          'and send a pull request (if you know how!).'
+        ].join('')
+      )
+    }
+    return pairAddress
   }
 
   // TODO(tron): implement caching logic
