@@ -98,7 +98,7 @@ export class Pair {
   public static getAddress(tokenA: Token, tokenB: Token): string {
     // An alternative solution would be to make `getAddress` async (see getAddressAsync for an attempt) but it would require a relatively
     // large refactor of both swap-interface and swap-sdk...
-    console.warn('getAddress() is mocked with hardcoded swapv2 pair addresses until TVM implements create2 op code...')
+    // console.warn('getAddress() is mocked with hardcoded swapv2 pair addresses until TVM implements create2 op code...')
     const tokens = tokenA.sortsBefore(tokenB) ? [tokenA, tokenB] : [tokenB, tokenA] // does safety checks
     const pairAddresses = PAIR_ADDRESSES[tokens[0].chainId]
     const pairAddress: string | undefined =
