@@ -33,13 +33,32 @@ describe('getAddress', () => {
       expect(addr).toEqual('0x02a6a10E4C7750a7F8dC159b95936B574c211f0D')
     }, 10000)
   })
-  it('throw if pair does not exist', async () => {
+  xit('throw if pair does not exist', async () => {
     const tokenA = WETH[ChainId.NILE]
     const tokenB = UnknownToken
     expect(() => {
       Pair.getAddress(tokenA, tokenB)
     }).toThrow(/Open an issue at/)
   }, 10000)
+
+  it('warns if pair does not exist', async () => {
+    const tokenA = WETH[ChainId.NILE]
+    const tokenB = UnknownToken
+    let msg = ''
+    let count = 0
+    window.alert = (m: string) => {
+      count += 1
+      msg = m
+    }
+    const addr = Pair.getAddress(tokenA, tokenB)
+    // console.log(msg)
+    expect(msg).toMatch(/Unknown pair contract address/)
+    expect(addr).toEqual(undefined)
+    Pair.getAddress(tokenA, tokenB)
+    // only warns once
+    expect(count).toEqual(1)
+  }, 10000)
+
   xdescribe('getAddressAsync', () => {
     it('returns the correct address', async () => {
       const provider = getNileProvider()

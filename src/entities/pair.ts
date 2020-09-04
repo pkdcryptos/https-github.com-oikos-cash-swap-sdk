@@ -92,6 +92,26 @@ export class Pair {
   }
   */
 
+  private static warningWasDisplayedOnce: boolean = false
+  private static getAddressWarning(tokenA: Token, tokenB: Token): void {
+    if (this.warningWasDisplayedOnce) return
+    this.warningWasDisplayedOnce = true
+    const message = [
+      `Unknown pair contract address for pair ${tokenA.symbol}/${tokenB.symbol} `,
+      `(${tokenA.address}, ${tokenB.address}). `,
+      'Open an issue at https://github.com/oikos-cash/swap-sdk/issues ',
+      'with this error message to get the pair added. ',
+      'You can also add the pair to PAIR_ADDRESSES in ',
+      'https://github.com/oikos-cash/swap-sdk/blob/master/src/constants.ts ',
+      'and send a pull request (if you know how!).'
+    ].join('')
+    if (typeof window === 'undefined') {
+      console.warn(message)
+    } else {
+      alert(message)
+    }
+  }
+
   // @TRON
   // create2 opcode not available :(
   // For now we just hardcode all pair addresses... :/
@@ -104,17 +124,7 @@ export class Pair {
     const pairAddress: string | undefined =
       pairAddresses?.[tokens[0].address.toLowerCase()]?.[tokens[1].address.toLowerCase()]
     if (pairAddress === undefined) {
-      throw new Error(
-        [
-          `Unknown pair contract address for pair ${tokens[0].symbol}/${tokens[1].symbol} `,
-          `(${tokens[0].address}, ${tokens[1].address}). `,
-          'Open an issue at https://github.com/oikos-cash/swap-sdk/issues ',
-          'with this error message to get the pair added. ',
-          'You can also add the pair to PAIR_ADDRESSES in ',
-          'https://github.com/oikos-cash/swap-sdk/blob/master/src/constants.ts ',
-          'and send a pull request (if you know how!).'
-        ].join('')
-      )
+      this.getAddressWarning(tokens[0], tokens[1])
     }
     return pairAddress
   }
