@@ -148,6 +148,12 @@ export const PAIR_ADDRESSES: { [chainId: string]: PairAddresses } = {
       '0x400E3A5eAedd27B4D9193de2Bf442E1D072D5A5c',
       '0x12bb90e238dd2cbbac5c4ec3e6a798a7e5900f16',
     ],
+    [
+      // BNKR/TRX
+      '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18',
+      '0x8CaEea9c7EBb8840eE4B49d10542B99Cec6fFbc6',
+      '0xcc9e9acaf2ab4558ced15c69e781e854b13f1b36',
+    ],
   ]),
   [ChainId.SHASTA]: {},
 }
