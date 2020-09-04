@@ -61,18 +61,39 @@ interface PairAddresses {
   [token0Address: string]: { [token1Address: string]: string }
 }
 
-export const PAIR_ADDRESSES: { [chainId: string]: PairAddresses } = {
-  // addresses must be lowercase
-  // to avoid duplicates (e.g. (a, b) and (b, a)), pairs are sorted by lowercase address
-  // e.g. (smallAddress, largerAddress)
-  // e.g. "0x42C142500ff7068f326c01A8F1B3cd8ea7D9377f".toLowerCase() < "0x8f44113A985076431b77f6078f0929f949cB8836".toLowerCase()
-  [ChainId.NILE]: {
-    // DemoToken
-    '0x42c142500ff7068f326c01a8f1b3cd8ea7d9377f': {
-      // WTRX                                        //  Pair address
-      '0x8f44113a985076431b77f6078f0929f949cb8836': '0x02a6a10E4C7750a7F8dC159b95936B574c211f0D'
+// @TRON
+function buildPairAddresses(list: [string, string, string][]): PairAddresses {
+  const res: PairAddresses = {}
+  list.forEach(([tokenA, tokenB, pairAddress]) => {
+    // deterministically sort addresses (prevents duplicates, e.g. (a, b) vs (b ,a))
+    const [token0_, token1_] = tokenA.toLowerCase() < tokenB.toLowerCase() ? [tokenA, tokenB] : [tokenB, tokenA]
+    const token0 = token0_.toLowerCase()
+    const token1 = token1_.toLowerCase()
+    res[token0] = res[token0] || {}
+    if (res[token0][token1]) {
+      throw new Error(`duplicated pair ${tokenA}, ${tokenB}, ${pairAddress}`)
     }
-  },
-  [ChainId.MAINNET]: {},
+    res[token0][token1] = pairAddress
+  })
+  return res
+}
+
+export const PAIR_ADDRESSES: { [chainId: string]: PairAddresses } = {
+  [ChainId.NILE]: buildPairAddresses([
+    [
+      // DTKN/WTRX
+      '0x42c142500ff7068f326c01a8f1b3cd8ea7d9377f',
+      '0x8f44113a985076431b77f6078f0929f949cb8836',
+      '0x02a6a10E4C7750a7F8dC159b95936B574c211f0D'
+    ]
+  ]),
+  [ChainId.MAINNET]: buildPairAddresses([
+    [
+      // OKS/TRX
+      '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18',
+      '0xE11cDc164a9D8C1aE19D95B0165278690D39d84B',
+      '0xd458a1f548f578d4da9f887504d7d478f05b6371'
+    ]
+  ]),
   [ChainId.SHASTA]: {}
 }
