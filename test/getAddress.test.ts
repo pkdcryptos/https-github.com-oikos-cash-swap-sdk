@@ -53,7 +53,7 @@ describe('getAddress', () => {
     const addr = Pair.getAddress(tokenA, tokenB)
     // console.log(msg)
     expect(msg).toMatch(/Unknown pair contract address/)
-    expect(addr).toEqual(undefined)
+    expect(addr).toEqual('0xdEADBEeF00000000000000000000000000000000')
     Pair.getAddress(tokenA, tokenB)
     // only warns once
     expect(count).toEqual(1)

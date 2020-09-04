@@ -125,6 +125,8 @@ export class Pair {
       pairAddresses?.[tokens[0].address.toLowerCase()]?.[tokens[1].address.toLowerCase()]
     if (pairAddress === undefined) {
       this.getAddressWarning(tokens[0], tokens[1])
+      // return a dummy address to avoid breaking swap-interface
+      return '0xdEADBEeF00000000000000000000000000000000'
     }
     return pairAddress
   }
