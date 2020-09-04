@@ -154,6 +154,12 @@ export const PAIR_ADDRESSES: { [chainId: string]: PairAddresses } = {
       '0x8CaEea9c7EBb8840eE4B49d10542B99Cec6fFbc6',
       '0xcc9e9acaf2ab4558ced15c69e781e854b13f1b36',
     ],
+    [
+      // CSX/TRX
+      '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18',
+      '0x629550b68f84Db46B53ebE095C92E5815AAA6d24',
+      '0x4b11611536994a25133d48c13a496d44cfc8d484',
+    ],
   ]),
   [ChainId.SHASTA]: {},
 }
