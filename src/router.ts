@@ -1,7 +1,7 @@
 import { TradeType } from './constants'
 import invariant from 'tiny-invariant'
 import { validateAndParseAddress } from './utils'
-import { CurrencyAmount, ETHER, Percent, Trade } from './entities'
+import { CurrencyAmount, TRON, Percent, Trade } from './entities'
 
 /**
  * Options for producing the arguments to send call to the router.
@@ -66,10 +66,10 @@ export abstract class Router {
    * @param options options for the call parameters
    */
   public static swapCallParameters(trade: Trade, options: TradeOptions): SwapParameters {
-    const etherIn = trade.inputAmount.currency === ETHER
-    const etherOut = trade.outputAmount.currency === ETHER
+    const tronIn = trade.inputAmount.currency === TRON
+    const tronOut = trade.outputAmount.currency === TRON
     // the router does not support both ether in and out
-    invariant(!(etherIn && etherOut), 'ETHER_IN_OUT')
+    invariant(!(tronIn && tronOut), 'TRON_IN_OUT')
     invariant(options.ttl > 0, 'TTL')
 
     const to: string = validateAndParseAddress(options.recipient)
@@ -84,13 +84,13 @@ export abstract class Router {
     let value: string
     switch (trade.tradeType) {
       case TradeType.EXACT_INPUT:
-        if (etherIn) {
-          methodName = useFeeOnTransfer ? 'swapExactETHForTokensSupportingFeeOnTransferTokens' : 'swapExactETHForTokens'
+        if (tronIn) {
+          methodName = useFeeOnTransfer ? 'swapExactTRXForTokensSupportingFeeOnTransferTokens' : 'swapExactTRXForTokens'
           // (uint amountOutMin, address[] calldata path, address to, uint deadline)
           args = [amountOut, path, to, deadline]
           value = amountIn
-        } else if (etherOut) {
-          methodName = useFeeOnTransfer ? 'swapExactTokensForETHSupportingFeeOnTransferTokens' : 'swapExactTokensForETH'
+        } else if (tronOut) {
+          methodName = useFeeOnTransfer ? 'swapExactTokensForTRXSupportingFeeOnTransferTokens' : 'swapExactTokensForTRX'
           // (uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline)
           args = [amountIn, amountOut, path, to, deadline]
           value = ZERO_HEX
@@ -105,13 +105,13 @@ export abstract class Router {
         break
       case TradeType.EXACT_OUTPUT:
         invariant(!useFeeOnTransfer, 'EXACT_OUT_FOT')
-        if (etherIn) {
-          methodName = 'swapETHForExactTokens'
+        if (tronIn) {
+          methodName = 'swapTRXForExactTokens'
           // (uint amountOut, address[] calldata path, address to, uint deadline)
           args = [amountOut, path, to, deadline]
           value = amountIn
-        } else if (etherOut) {
-          methodName = 'swapTokensForExactETH'
+        } else if (tronOut) {
+          methodName = 'swapTokensForExactTRX'
           // (uint amountOut, uint amountInMax, address[] calldata path, address to, uint deadline)
           args = [amountOut, amountIn, path, to, deadline]
           value = ZERO_HEX
