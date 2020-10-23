@@ -161,6 +161,15 @@ export const PAIR_ADDRESSES: { [chainId: string]: PairAddresses } = {
       '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18',
       '0x629550b68f84Db46B53ebE095C92E5815AAA6d24',
       '0x4b11611536994a25133d48c13a496d44cfc8d484'
+    ],
+    [
+      // USDT/TRX
+      '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18', // WTRX
+      '0xa614f803B6FD780986A42c78Ec9c7f77e6DeD13C', // USDT
+      // Pair address, as queried from
+      // https://tronscan.org/#/contract/TPvAyF9bNTbP4xEkmgJKefh3pPtZsrqDHM/code
+      // getPair(41891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18, 41a614f803B6FD780986A42c78Ec9c7f77e6DeD13C)
+      '0x552D09F6d20e71eEA288391be04c7E57574aFA76'
     ]
   ]),
   [ChainId.SHASTA]: {}
