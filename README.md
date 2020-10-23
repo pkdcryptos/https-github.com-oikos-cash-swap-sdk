@@ -15,6 +15,10 @@ In-depth documentation on this SDK is available at [uniswap.org](https://uniswap
 npm install @oikos/swap-sdk
 ```
 
+## Adding a pair
+
+Add liquidity to the pair using [https://swap2.oikos.cash](https://swap2.oikos.cash) (ignore the alert message). Add the pair here, see [this commit](https://github.com/oikos-cash/swap-sdk/commit/baab851d85c8ba5ee488925a7dd7a7383d5071d5).
+
 ## Running tests
 
 To run the tests, follow these steps. You must have at least node v10 installed.
