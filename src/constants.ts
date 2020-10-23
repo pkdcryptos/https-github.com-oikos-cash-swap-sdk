@@ -21,8 +21,8 @@ export enum Rounding {
 }
 
 // TODO(tron): nile address is 0x41DA32Ec09Fb54aB5f5742F1eB730003caaC0BbF
-// mainnet address is 0x98fED14512ec379eB5a545e1aE1DbDa17476439A
-export const FACTORY_ADDRESS = '0x98fED14512ec379eB5a545e1aE1DbDa17476439A'
+// mainnet address is 0x3E59c50Fcfbb494328Cee937E8627e2A3Bd8FA83
+export const FACTORY_ADDRESS = '0x3E59c50Fcfbb494328Cee937E8627e2A3Bd8FA83'
 
 export const INIT_CODE_HASH = '0x278d8201610c32bb650c43e9c27bb9124680c6c6b82d65d58a4117c055f01573'
 
@@ -52,7 +52,7 @@ export const SOLIDITY_TYPE_MAXIMA = {
 // @TRON only
 export const FACTORY_ADDRESSES = {
   [ChainId.NILE]: '0x41da32ec09fb54ab5f5742f1eb730003caac0bbf',
-  [ChainId.MAINNET]: '0x98fED14512ec379eB5a545e1aE1DbDa17476439A',
+  [ChainId.MAINNET]: '0x3E59c50Fcfbb494328Cee937E8627e2A3Bd8FA83',
   [ChainId.SHASTA]: '0xtodo'
 }
 
