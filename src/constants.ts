@@ -90,6 +90,7 @@ export const PAIR_ADDRESSES: { [chainId: string]: PairAddresses } = {
     ]
   ]),
   [ChainId.MAINNET]: buildPairAddresses([
+    /*
     [
       // OKS/TRX
       '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18',
@@ -171,6 +172,7 @@ export const PAIR_ADDRESSES: { [chainId: string]: PairAddresses } = {
       // getPair(41891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18, 41a614f803B6FD780986A42c78Ec9c7f77e6DeD13C)
       '0x552D09F6d20e71eEA288391be04c7E57574aFA76'
     ]
+    */
   ]),
   [ChainId.SHASTA]: {}
 }
