@@ -90,6 +90,15 @@ export const PAIR_ADDRESSES: { [chainId: string]: PairAddresses } = {
     ]
   ]),
   [ChainId.MAINNET]: buildPairAddresses([
+    [
+      // sTRX/TRX
+      '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18', // WTRX
+      '0xA099cc498284ed6e25F3C99e6d55074e6ba42911', // sTRX
+      // Pair address, as queried from
+      // https://tronscan.org/#/contract/TFetSGMphMDu8MLwVPMd5s1QYYTLrTmPs8/code
+      // getPair(41891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18, 41A099cc498284ed6e25F3C99e6d55074e6ba42911)
+      '0xac044cF1c13e7c68a80e3bd159BEf8CC768FD897'
+    ]
     /*
     [
       // OKS/TRX
@@ -102,12 +111,6 @@ export const PAIR_ADDRESSES: { [chainId: string]: PairAddresses } = {
       '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18',
       '0xA1402557c4C7a50f958e15c0527A60bF6666C77e',
       '0xba430ca6d3889838165f021b14141c52f7482a5a'
-    ],
-    [
-      // STRX/TRX
-      '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18',
-      '0xA099cc498284ed6e25F3C99e6d55074e6ba42911',
-      '0x6ce89df5918e5bc9bcf30850ab077dacd38e7c83'
     ],
     [
       // SUSD/TRX
@@ -167,9 +170,6 @@ export const PAIR_ADDRESSES: { [chainId: string]: PairAddresses } = {
       // USDT/TRX
       '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18', // WTRX
       '0xa614f803B6FD780986A42c78Ec9c7f77e6DeD13C', // USDT
-      // Pair address, as queried from
-      // https://tronscan.org/#/contract/TPvAyF9bNTbP4xEkmgJKefh3pPtZsrqDHM/code
-      // getPair(41891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18, 41a614f803B6FD780986A42c78Ec9c7f77e6DeD13C)
       '0x552D09F6d20e71eEA288391be04c7E57574aFA76'
     ]
     */
