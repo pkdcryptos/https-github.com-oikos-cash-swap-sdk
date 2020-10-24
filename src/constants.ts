@@ -98,6 +98,18 @@ export const PAIR_ADDRESSES: { [chainId: string]: PairAddresses } = {
       // https://tronscan.org/#/contract/TFetSGMphMDu8MLwVPMd5s1QYYTLrTmPs8/code
       // getPair(41891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18, 41A099cc498284ed6e25F3C99e6d55074e6ba42911)
       '0xac044cF1c13e7c68a80e3bd159BEf8CC768FD897'
+    ],
+    [
+      // USDT/TRX
+      '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18', // WTRX
+      '0xa614f803B6FD780986A42c78Ec9c7f77e6DeD13C', // USDT
+      '0x9D19Dc60bEdfd207f4837fa6e21FD108B7A1b155' // Pair
+    ],
+    [
+      // SUSD/TRX
+      '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18', // WTRX
+      '0xda2853b2bede0e3018f56d47624a413b2abe0831', // sUSD
+      '0xE26222AaaE46a7d63d8BCaA1Db47947b29c0582e' // Pair
     ]
     /*
     [
@@ -111,12 +123,6 @@ export const PAIR_ADDRESSES: { [chainId: string]: PairAddresses } = {
       '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18',
       '0xA1402557c4C7a50f958e15c0527A60bF6666C77e',
       '0xba430ca6d3889838165f021b14141c52f7482a5a'
-    ],
-    [
-      // SUSD/TRX
-      '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18',
-      '0xda2853b2bede0e3018f56d47624a413b2abe0831',
-      '0xbe5ca5d12a16dbeb16fd56862f3fe1d2b6a65bf9'
     ],
     [
       // USDJ/TRX
@@ -166,12 +172,6 @@ export const PAIR_ADDRESSES: { [chainId: string]: PairAddresses } = {
       '0x629550b68f84Db46B53ebE095C92E5815AAA6d24',
       '0x4b11611536994a25133d48c13a496d44cfc8d484'
     ],
-    [
-      // USDT/TRX
-      '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18', // WTRX
-      '0xa614f803B6FD780986A42c78Ec9c7f77e6DeD13C', // USDT
-      '0x552D09F6d20e71eEA288391be04c7E57574aFA76'
-    ]
     */
   ]),
   [ChainId.SHASTA]: {}
