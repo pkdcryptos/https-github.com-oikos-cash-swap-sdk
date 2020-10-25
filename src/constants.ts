@@ -151,27 +151,19 @@ export const PAIR_ADDRESSES: { [chainId: string]: PairAddresses } = {
       '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18', // WTRX
       '0x8CaEea9c7EBb8840eE4B49d10542B99Cec6fFbc6', // BNKR
       '0xf196517a21085cA1847e66666829f69fc2Bea383' // Pair
-    ]
-    /*
+    ],
     [
       // JST/TRX
       '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18',
       '0x18FD0626DAF3Af02389AEf3ED87dB9C33F638ffa',
-      '0xd884f83f06f65df263b32ee961cfec68b9613870'
+      '0x9d0E43bb37d013FAc1fD37d6A293406955ebecF9'
     ],
     [
       // TEWKEN/TRX
       '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18',
       '0x130E4C9746E2F7b0A9D1F5eAB71AA13896037Ae8',
-      '0x2b6046ac669f567154d995e9b723ad03fb670e2c'
-    ],
-    [
-      // CSX/TRX
-      '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18',
-      '0x629550b68f84Db46B53ebE095C92E5815AAA6d24',
-      '0x4b11611536994a25133d48c13a496d44cfc8d484'
-    ],
-    */
+      '0xa9545CFe49F917EA73aFB1396Bb2d813979679BD'
+    ]
   ]),
   [ChainId.SHASTA]: {}
 }
