@@ -89,6 +89,12 @@ export const PAIR_ADDRESSES: { [chainId: string]: PairAddresses } = {
     ]
   ]),
   [ChainId.MAINNET]: buildPairAddresses([
+    [
+      // USDT/TRX
+      '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18', // WTRX
+      '0xa614f803B6FD780986A42c78Ec9c7f77e6DeD13C', // USDT
+      '0xC4488fa262236619425E19f6bA4A8639b8cA1973' // Pair
+    ]
     /*
     [
       // sTRX/TRX
@@ -98,12 +104,6 @@ export const PAIR_ADDRESSES: { [chainId: string]: PairAddresses } = {
       // https://tronscan.org/#/contract/TFetSGMphMDu8MLwVPMd5s1QYYTLrTmPs8/code
       // getPair(41891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18, 41A099cc498284ed6e25F3C99e6d55074e6ba42911)
       '0xac044cF1c13e7c68a80e3bd159BEf8CC768FD897'
-    ],
-    [
-      // USDT/TRX
-      '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18', // WTRX
-      '0xa614f803B6FD780986A42c78Ec9c7f77e6DeD13C', // USDT
-      '0x9D19Dc60bEdfd207f4837fa6e21FD108B7A1b155' // Pair
     ],
     [
       // SUSD/TRX
