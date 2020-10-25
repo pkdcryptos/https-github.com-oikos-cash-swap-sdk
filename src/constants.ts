@@ -94,8 +94,7 @@ export const PAIR_ADDRESSES: { [chainId: string]: PairAddresses } = {
       '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18', // WTRX
       '0xa614f803B6FD780986A42c78Ec9c7f77e6DeD13C', // USDT
       '0xC4488fa262236619425E19f6bA4A8639b8cA1973' // Pair
-    ]
-    /*
+    ],
     [
       // sTRX/TRX
       '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18', // WTRX
@@ -103,34 +102,57 @@ export const PAIR_ADDRESSES: { [chainId: string]: PairAddresses } = {
       // Pair address, as queried from
       // https://tronscan.org/#/contract/TFetSGMphMDu8MLwVPMd5s1QYYTLrTmPs8/code
       // getPair(41891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18, 41A099cc498284ed6e25F3C99e6d55074e6ba42911)
-      '0xac044cF1c13e7c68a80e3bd159BEf8CC768FD897'
+      '0x6C872684e348EC3a5418Fb1E952556110550c924'
     ],
-    [
-      // SUSD/TRX
-      '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18', // WTRX
-      '0xda2853b2bede0e3018f56d47624a413b2abe0831', // sUSD
-      '0xE26222AaaE46a7d63d8BCaA1Db47947b29c0582e' // Pair
-    ]
-    */
-    /*
     [
       // OKS/TRX
       '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18',
       '0xE11cDc164a9D8C1aE19D95B0165278690D39d84B',
-      '0xd458a1f548f578d4da9f887504d7d478f05b6371'
+      '0x3308A4E8EbD10e88321abF91B92A026ca78F47A1'
     ],
     [
-      // SETH/TRX
-      '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18',
-      '0xA1402557c4C7a50f958e15c0527A60bF6666C77e',
-      '0xba430ca6d3889838165f021b14141c52f7482a5a'
+      // sUSD/TRX
+      '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18', // WTRX
+      '0xda2853b2bede0e3018f56d47624a413b2abe0831', // sUSD
+      '0x8D6d7d0bf06A5b92BF07516385dd3ea516227323' // Pair
+    ],
+    [
+      // sETH/TRX
+      '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18', // WTRX
+      '0xA1402557c4C7a50f958e15c0527A60bF6666C77e', // sETH
+      '0x33251ab1103EdFc7Dd5CDa63C10334e2920e80aa' // Pair
+    ],
+    [
+      // CNS/TRX
+      '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18', // WTRX
+      '0x7C503A569a8E62210bdCe6b3e733272e154d08ab', // CNS
+      '0x61C9b7B424D7bDC181D5A6b2237b618c806d3a4E' // Pair
+    ],
+    [
+      // MIMA/TRX
+      '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18', // WTRX
+      '0x400E3A5eAedd27B4D9193de2Bf442E1D072D5A5c', // MIMA
+      '0xd5AD3E87478FF81569Fab51fcaB663D224E00A89' // Pair
     ],
     [
       // USDJ/TRX
       '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18', // WTRX
       '0x834295921A488D9d42b4b3021ED1a3C39fB0f03e', // USDJ
-      '0x97241d2a49699e9f333fa5ea2b0e57f52c7d63b5' // pair
+      '0x43965424c16fF65c2d85ffe6514C1585890b99Aa' // pair
     ],
+    [
+      // DCD/TRX
+      '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18', // WTRX
+      '0x8cE2B3fc3e8AD8fad36973A386547Fb8A97326E0', // DCD
+      '0x8aCbf441A1735f894e23C3Dd14dA1299db0728AB' // Pair
+    ],
+    [
+      // BNKR/TRX
+      '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18', // WTRX
+      '0x8CaEea9c7EBb8840eE4B49d10542B99Cec6fFbc6', // BNKR
+      '0xf196517a21085cA1847e66666829f69fc2Bea383' // Pair
+    ]
+    /*
     [
       // JST/TRX
       '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18',
@@ -138,34 +160,10 @@ export const PAIR_ADDRESSES: { [chainId: string]: PairAddresses } = {
       '0xd884f83f06f65df263b32ee961cfec68b9613870'
     ],
     [
-      // DCD/TRX
-      '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18',
-      '0x8cE2B3fc3e8AD8fad36973A386547Fb8A97326E0',
-      '0x400d234d52345c976e95808503e2111ac878e491'
-    ],
-    [
       // TEWKEN/TRX
       '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18',
       '0x130E4C9746E2F7b0A9D1F5eAB71AA13896037Ae8',
       '0x2b6046ac669f567154d995e9b723ad03fb670e2c'
-    ],
-    [
-      // CNS/TRX
-      '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18',
-      '0x7C503A569a8E62210bdCe6b3e733272e154d08ab',
-      '0x286feba54b2728b21a9b899c5b12884548b613ec'
-    ],
-    [
-      // MIMA/TRX
-      '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18',
-      '0x400E3A5eAedd27B4D9193de2Bf442E1D072D5A5c',
-      '0x12bb90e238dd2cbbac5c4ec3e6a798a7e5900f16'
-    ],
-    [
-      // BNKR/TRX
-      '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18',
-      '0x8CaEea9c7EBb8840eE4B49d10542B99Cec6fFbc6',
-      '0xcc9e9acaf2ab4558ced15c69e781e854b13f1b36'
     ],
     [
       // CSX/TRX
