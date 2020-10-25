@@ -89,6 +89,7 @@ export const PAIR_ADDRESSES: { [chainId: string]: PairAddresses } = {
     ]
   ]),
   [ChainId.MAINNET]: buildPairAddresses([
+    /*
     [
       // sTRX/TRX
       '0x891cdb91d149f23B1a45D9c5Ca78a88d0cB44C18', // WTRX
@@ -110,6 +111,7 @@ export const PAIR_ADDRESSES: { [chainId: string]: PairAddresses } = {
       '0xda2853b2bede0e3018f56d47624a413b2abe0831', // sUSD
       '0xE26222AaaE46a7d63d8BCaA1Db47947b29c0582e' // Pair
     ]
+    */
     /*
     [
       // OKS/TRX
